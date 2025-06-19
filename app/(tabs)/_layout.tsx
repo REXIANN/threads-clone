@@ -1,4 +1,4 @@
-import {Tabs} from 'expo-router'
+import {router, Tabs} from 'expo-router'
 import {Ionicons} from "@expo/vector-icons";
 
 export default function TabLayout() {
@@ -26,9 +26,10 @@ export default function TabLayout() {
         <Tabs.Screen
             name="add"
             listeners={{ tabPress: e => {
-                         e.preventDefault() }
-                         }}
-                options={{
+                 e.preventDefault()
+                 router.navigate('/modal')
+            }}}
+            options={{
             tabBarLabel: () => null,
             tabBarIcon: ({focused}) => <Ionicons name='add' size={24} color={focused ? 'black' : 'gray'}/>
         }}
